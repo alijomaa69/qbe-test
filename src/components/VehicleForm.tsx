@@ -1,4 +1,4 @@
-import { Grid, Box, Stack } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import { AppPaper } from './common/AppPaper';
 import { AppToggle } from './common/AppToggle';
 import { useState } from 'react';
@@ -50,20 +50,33 @@ export const VehicleForm = ({setNextStep}: IVehicleFormProps) => {
       <Grid item >
         <AppPaper 
           sx={{minHeight: '500px', 
-          minWidth: '380px', 
+          minWidth: '310px', 
           maxWidth: '500px', 
           m: {xs: 2, sm: 4}}}
         >
-            <Stack sx={{p: 4}} alignItems="center">
+            <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <TextTitleTypography sx={{m: 1}}>One more thing</TextTitleTypography>
               <TextTitleTypography 
-                sx={(theme) => ({fontWeight: theme.typography.fontWeightMedium,  m: 1})}>
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightMedium,  
+                  m: 1,
+                  textAlign: 'center'
+                })}>
                   What's your vehicle registration number or garage postcode?
               </TextTitleTypography>
               <AppToggle options={options} selectedOption={option} setOption={setOption}/>   
-              <Box sx={{mt: 6, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <TextTitleTypography>{option.title}</TextTitleTypography>
-                <InfoOutlinedIcon sx={{color:'#000', pl: 1}}/>
+              <Box 
+                sx={{
+                  mt: 6, 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  flexWrap: 'wrap'
+              }}>
+                <TextTitleTypography sx={{textAlign: 'center'}}>
+                  {option.title}
+                  <InfoOutlinedIcon sx={{color:'#000', pl: 1, height: '16px'}}/>
+                </TextTitleTypography>
               </Box>         
               <AppInput 
                 error={error}
@@ -74,7 +87,7 @@ export const VehicleForm = ({setNextStep}: IVehicleFormProps) => {
                 onBlur={handleChange}
               />
               <Button sx={{mt: 4, width: '100px'}}>Continue</Button>
-            </Stack>
+            </Box>
         </AppPaper>
       </Grid>
     </Grid>
