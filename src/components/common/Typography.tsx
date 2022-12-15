@@ -18,7 +18,6 @@ export const MediumTitleTypography = styled(Typography)<TypographyProps>(({ them
 
 // Texts
 export const TextLabelTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
-  whiteSpace: 'nowrap',
   color: theme.palette.text.secondary,
   fontWeight: theme.typography.fontWeightRegular,
 }));
@@ -31,7 +30,6 @@ export const TextLabelSmallTypography = styled(TextLabelTypography)<TypographyPr
 
 export const TextTitleTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: theme.palette.text.primary,
-  whiteSpace: 'nowrap',
   fontWeight: theme.typography.fontWeightBold,
   fontSize: '16px',
   lineHeight: '19px',
